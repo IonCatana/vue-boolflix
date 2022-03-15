@@ -2,7 +2,7 @@
   <div class="container">
     <div class="search_bar">
       <input v-model="search" type="text" />
-      <button @click="searchMovie()">Search movie</button>
+      <button @click="callApi(search)">Search movie</button>
     </div>
     <div class="movie" v-for="movie in movies" :key="movie.id">
       <p>{{ movie.title }}</p>
@@ -16,28 +16,29 @@ export default {
   data() {
     return {
       search: "",
-      api_url:
-        "https://api.themoviedb.org/3/search/movie?api_key=2c70cf7212141e650767768ea94e23e6&language=en-US&query=matrix&page=1&include_adult=false",
       movies: [],
     };
   },
   methods: {
-    searchMovie() {
-      // console.log('cliccato sul button')
+    callApi(textInput) {
+      this.search = textInput;
       console.log(this.search);
+      axios
+        // eslint-disable-next-line quotes
+        .get(
+          "https://api.themoviedb.org/3/search/movie?api_key=2c70cf7212141e650767768ea94e23e6&language=en-US&query=" +
+            this.search +
+            "&page=1&include_adult=false"
+        )
+        .then((response) => {
+          console.log(response);
+          this.movies = response.data.results;
+          console.log(this.movies);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
-  },
-  mounted() {
-    axios
-      .get(this.api_url)
-      .then((response) => {
-        console.log(response);
-        this.movies = response.data.results;
-        console.log(this.movies);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   },
 };
 </script>
