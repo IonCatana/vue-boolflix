@@ -7,6 +7,12 @@
     <!-- /.search_bar -->
     <div class="movies">
       <div class="movie" v-for="movie in movies" :key="movie.id">
+        <div class="jumbo_movie">
+          <img
+            :src="'http://image.tmdb.org/t/p/w300/' + movie.poster_path"
+            alt=""
+          />
+        </div>
         <div class="specifications_movie">
           <h4>Title: {{ movie.title }} {{ movie.name }}</h4>
           <h5>
@@ -149,7 +155,7 @@ export default {
     }
   }
   .movie {
-    padding: 1rem;
+    width: calc(100% / 6);
     .languages {
       display: flex;
       align-items: center;
@@ -157,6 +163,19 @@ export default {
         margin-left: 0.5rem;
       }
     }
+  }
+
+  .movies {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+.jumbo_movie {
+  width: 200px;
+  img {
+    width: 100%;
   }
 }
 </style>
