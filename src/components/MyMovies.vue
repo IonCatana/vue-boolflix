@@ -5,7 +5,12 @@
       <button @click="callApi(search)">Search movie</button>
     </div>
     <div class="movie" v-for="movie in movies" :key="movie.id">
-      <p>{{ movie.title }}</p>
+      <div class="specifications_movie">
+        <h4>Title: {{ movie.title }}</h4>
+        <h5>Original title: {{ movie.original_title }}</h5>
+        <p>Language: {{ movie.original_language }}</p>
+        <p>Vote: {{ movie.vote_average }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -53,6 +58,9 @@ export default {
     input {
       margin-right: 1rem;
     }
+  }
+  .movie {
+    padding: 1rem;
   }
 }
 </style>
