@@ -1,14 +1,26 @@
 <template>
   <div class="container">
     <div class="search_bar">
-      <input type="text" />
-      <button>Search movie</button>
+      <input v-model="search" type="text" />
+      <button @click="searchMovie()">Search movie</button>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      search: "",
+    };
+  },
+  methods: {
+    searchMovie() {
+      //console.log('cliccato sul button')
+      console.log(this.search);
+    },
+  },
+};
 </script>
 
 <style lang="scss">
