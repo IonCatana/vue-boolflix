@@ -8,25 +8,46 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      search: ''
-    }
+      search: "",
+    };
   },
   methods: {
-    searchMovies (digitText) {
-      console.log(digitText)
-    }
-  }
-}
+    searchMovies(digitText) {
+      console.log(digitText);
+    },
+  },
+};
 </script>
 
 <style lang="scss">
 .logo {
-    display: flex;
-    justify-content: space-between;
-    input {
-      margin-right: 1rem;
-    }
+  display: flex;
+  justify-content: space-between;
+  input {
+    margin-right: 1rem;
   }
+}
+input {
+  width: 300px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 10px;
+}
+button {
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+button:hover {
+  background: url(../assets/img/fire.gif);
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 1s;
+  color: white;
+}
 </style>
