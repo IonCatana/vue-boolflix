@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 * {
   margin: 0;
   padding: 0;
