@@ -1,6 +1,6 @@
 <template>
   <div class="search_bar">
-    <input v-model="search" type="text" />
+    <input v-model="search" type="text" placeholder="Search your movies & tv series" @keyup.enter="$emit('searchMovies', search)" />
     <button @click="$emit('searchMovies', search)">Search</button>
   </div>
   <!--./searchBar -->
@@ -25,6 +25,7 @@ export default {
 .logo {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   input {
     margin-right: 1rem;
   }
@@ -41,6 +42,9 @@ button {
   padding: 10px;
   border-radius: 10px;
   font-size: 18px;
+  &:hover{      
+      cursor: pointer;      
+    }
 }
 button:hover {
   background: url(../assets/img/fire.gif);

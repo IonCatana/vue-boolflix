@@ -18,13 +18,9 @@ export default {
 @import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 @import './assets/scss/variables.scss';
 @import './assets/scss/common.scss';
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 body {
-  background-color: #434343;
+  background-color: #434343;  
 }
 .container {
   max-width: 1200px;

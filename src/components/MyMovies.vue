@@ -6,13 +6,13 @@
           <div class="hover_animation">
             <h2>BOOLFLIX</h2>
             <p>By Ion Catana with <span>&#10084;</span></p>
+            <img src="../assets/img/bg-animation.gif" alt="" />
           </div>
-
           <SearchBar @searchMovies="getMovie" />
         </div>
       </div>
       <!-- /.container -->
-    </header>
+    </header>    
     <!-- /#site_header -->
     <main id="site_main">
       <div class="container">
@@ -26,6 +26,7 @@
               />
               <div class="info">
                 <div class="specifications">
+                  <h1>Movie</h1>
                   <h3>Title: {{ movie.title }}</h3>
                   <h4>Original title: {{ movie.original_title }}</h4>
                   <div class="languages">
@@ -65,7 +66,7 @@
             <div v-else class="jumbo">
               <h3 class="avaiable">IMAGE NOT AVAIABLE</h3>
               <div class="info">
-                <div class="specifications">
+                <div class="specifications">                  
                   <h3>Title: {{ movie.title }}</h3>
                   <h4>Original title: {{ movie.original_title }}</h4>
                   <div class="languages">
@@ -111,8 +112,9 @@
                 :src="'http://image.tmdb.org/t/p/w342' + serie.poster_path"
                 :alt="serie.name"
               />
-              <div class="info">
+              <div class="info">                
                 <div class="specifications">
+                  <h1>Serie</h1>
                   <h3>Title: {{ serie.name }}</h3>
                   <h4>Original title: {{ serie.original_name }}</h4>
                   <div class="languages">
@@ -237,6 +239,16 @@ export default {
           image:
             "https://images.emojiterra.com/twitter/v13.1/512px/1f1eb-1f1f7.png",
         },
+        {
+          chiave: "ru",
+          image:
+            "https://images.emojiterra.com/twitter/v13.1/512px/1f1f7-1f1fa.png",
+        },
+        {
+          chiave: "pt",
+          image:
+            "https://images.emojiterra.com/twitter/v13.1/512px/1f1f5-1f1f9.png",
+        },
       ],
       countryCode: "",
       status: "",
@@ -332,16 +344,16 @@ header {
   height: 100px;
   background-color: #000;
   .logo {
-    line-height: 100px;
     h2 {
       color: red;
-      padding-left: 1rem;
+      position: absolute;
+      transform: translate(-5%, 0%);
+      font-size: 32px;
     }
     p {
       color: white;
-      padding-left: 1rem;
-      position: relative;
-      top: -85px;
+      position: absolute;
+      transform: translate(63%, 150%);
       font-size: 8px;
       text-align: center;
       span {
@@ -354,6 +366,7 @@ header {
   .movies_series {
     display: flex;
     flex-wrap: wrap;
+
     .movie,
     .serie {
       padding: 1rem;
@@ -364,7 +377,12 @@ header {
         height: 100%;
         border: 1px solid black;
         position: relative;
-        transition: 1000ms linear;
+        transition: 500ms linear;
+        &:hover {
+          transform: scale(1.01);
+          transition: 5000ms linear;
+        }
+        
         .avaiable {
           text-align: center;
           vertical-align: middle;
@@ -375,7 +393,8 @@ header {
         visibility: visible;
         cursor: pointer;
         opacity: 0.9;
-        transition: 1000ms linear;
+        transform: scale(1.01);
+        transition: 500ms linear;
       }
       .poster {
         height: 100%;
@@ -397,6 +416,15 @@ header {
         .specifications {
           color: #fff;
           padding: 1rem;
+          h1{
+            padding-right: 5px;
+            display: flex;
+            justify-content: flex-end;
+            display: block;
+            color: red;
+            text-align: right;
+            background-color: orange;
+          }
         }
       }
       .languages {
@@ -410,6 +438,22 @@ header {
         color: gold;
       }
     }
+  }
+}
+.hover_animation {
+  width: 130px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: contain;
+  img {
+    width: 100%;
+    margin-left: 15px;
+  }
+  display: flex;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
   }
 }
 </style>
