@@ -1,24 +1,33 @@
 <template>
   <div id="app">
-    <MyMovies />
+    <MyMovies/>
   </div>
 </template>
 
 <script>
-import MyMovies from "./components/MyMovies.vue";
+import MyMovies from './components/MyMovies.vue'
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    MyMovies,
-  },
-};
+    MyMovies
+  }
+}
 </script>
 
 <style lang="scss">
-@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+@import './assets/scss/variables.scss';
+@import './assets/scss/common.scss';
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  background-color: #434343;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
 }
 </style>
