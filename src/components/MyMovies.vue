@@ -43,7 +43,7 @@
                   <!-- /.languages -->
                   <div v-if="movie.vote_average >= 1">
                     <p>
-                      <strong>Vote: </strong>
+                      <strong>Vote: </strong>d
                       <i
                         class="stars"
                         :class="classStars"
